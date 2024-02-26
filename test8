@@ -1,0 +1,32 @@
+CREATE TABLE employee (
+
+	id INTEGER PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	birthday  DATE		
+
+);
+
+-- Verinin eklendi --> ilgili dosyadan CSV formatında veriler alınıp table içerisine import edildi
+
+
+update employee set name = 'UPDATED'; -- tüm firstnameleri güncelledik
+
+update employee set name = 'UPDATED' where id in (1,2,3); -- id ye göre koşul koyduk
+
+update employee set name = 'UPDATED' where name ILIKE 'm%'; -- case SENSITIVE olmayacak şekilde m ile başlayan isimleri güncelledik
+
+UPDATE employee set birthday is NULL where name id = 10; -- id si 10 olan değerin birthday kısmını nul yaptık
+
+update employee set name = 'Z kusagi' where birthday > '1998-01-01'; -- doğumu 1 ocak 1998 den büyük olanların isimlerini güncelledik 
+
+
+
+delete from employee where id in (1,2,3,4,5) RETURNING *; -- ilk beş id liyi sil ve verileri döndür
+
+delete from author where id >= 1; -- Tüm veriyi sil demenin başka bir yöntemi
+
+delete from author where date < '1998-01-01'; -- yaşı 1 ocak 1998 den küçük olanların isimlerini güncelledik 
+
+delete from author where name like 'M%' RETURNING *; -- M ile başlaynları sildik ve silinenleri yazdırdık
+
+delete from author where id BETWEEN 1 and 12; -- 1'den 12'ye kadar olanları silmek
