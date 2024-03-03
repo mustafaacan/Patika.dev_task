@@ -1,0 +1,39 @@
+(
+select first_name from actor
+order by first_name
+)
+
+UNION ALL
+
+(
+select first_name from customer
+order by first_name
+);
+
+
+
+(
+select first_name from actor
+order by first_name
+)
+
+INTERSECT
+
+(
+select first_name from customer
+order by first_name
+);
+
+
+
+(
+select first_name from actor
+order by first_name
+)
+
+EXCEPT
+
+(
+select first_name from customer
+order by first_name
+);
